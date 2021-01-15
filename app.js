@@ -4,42 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-var io = require('socket.io')(3005);
 var http = require('http').createServer(app);
 
 var app = express();
 
-io.attach(http, {
-  pingInterval: 10000,
-  pingTimeout: 5000,  
-  cookie: false
-});
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-
-io.on('connection', function (socket) {
-
-  console.log('user connected');
-
-  socket.on('disconnect', function () {
-    console.log('user disconnected');
-  });
-  socket.on('message', function (msg) {
-   console.log("message: "+msg);
-  });
-  timeout();
-});
-
-
-function timeout() {
-  setTimeout(function () {
-   io.emit('reply',"A message from server");
-    timeout();
-  }, 5000);
-}
-
-http.listen();
+var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
 
 
 // view engine setup
@@ -59,7 +31,9 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

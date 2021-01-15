@@ -1,0 +1,46 @@
+/*
+
+metalic seaweed: #087F8C;
+
+
+*/
+
+body {
+    background: url('../images/bg2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.loginform {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+    padding: 5px;
+    border-radius: 15px;
+}
+
+
+.input-group-text {
+    background: #00A5E0;
+    border-color: 0.5px solid #087F8C;
+}
+
+.submit-btn {
+    font-weight: 700;
+    color: #087F8C;
+    border-color: #00A5E0;
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+    border-radius: 12px;
+}
+
+.submit-btn:hover {
+    background: #00A5E0;
+    color: white;
+
+}
