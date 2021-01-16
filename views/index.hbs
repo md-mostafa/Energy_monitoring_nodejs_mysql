@@ -10,12 +10,13 @@
         <link rel='stylesheet' href="stylesheets/index.css">
         <!--FontAwesome cdn-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+        
     </head>
     <body>
         <!--Navbar-->
         <div>
            <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white justify-content-sm-start fixed-top bg">
-                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">Navbar</a>
+                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">Energy Monitoring</a>
                 <button class="navbar-toggler align-self-start" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,9 +52,31 @@
             </nav>
             <div class="overlay"></div>
         </div>
-        <div class="container">
-            <p>Akash is the best</p>
-        </div>
+        <section class='chart'>
+            <div id="container" style="width: 100%; height: 100%"></div>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Sensors', 'Sensor Data'],
+                ['Sensor 1',     {{s.s1}}],
+                ['Sensor 2',      {{s.s2}}],
+                ['Sensor 3',  {{s.s3}}],
+              
+                ]);
+
+                var options = {
+                title: 'My Daily Activities',
+                pieHole: 0.4,
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('container'));
+                chart.draw(data, options);
+            }
+            </script>
+        </section>
     </body>
 </html>
 
