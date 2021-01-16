@@ -6,10 +6,9 @@ var ip = require('ip');
 router.get('/', function(req, res, next) {
   var sensordataquery = "SELECT s1, s2, s3 FROM msensors";
   connection.query(sensordataquery,[], function(error, result){
-    console.log(result);
+
     var data = result[0];
     console.log('ip', ip.address());
-    console.log(data)
     if(req.session.loggedin){
       res.render('index', {s: data});
     }else {
