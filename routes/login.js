@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
         res.send('Please enter Meterid and Password!');
         res.redirect('login');
     }
-    res.redirect('/login');
+    res.redirect('..');
 });
 
 module.exports = router;

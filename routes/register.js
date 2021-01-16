@@ -11,10 +11,6 @@ router.post('/', (req, res, next) => {
     const mid = req.body.mid;
     const email = req.body.email;
     const password = req.body.password;
-    //console.log(mid);
-    //console.log(email);
-    //console.log(password);
-    //console.log(req.body);
     var sql = `INSERT INTO user (meter_id, password, email) VALUES ('${mid}', '${password}', '${email}')`;
     connection.query('SELECT * FROM user WHERE meter_id = ? AND email = ? AND password = ?', [mid, email, password], function(error, results, fields) {
         if(results.length > 0){
