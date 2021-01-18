@@ -24,10 +24,10 @@
                 <div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end mt-5 mt-lg-0 mobileMenu bg-primary text-white p-3 p-lg-0 bg" id="navbarSupportedContent">
                     <ul class="navbar-nav align-self-stretch">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="/load">Load Mangement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -55,10 +55,12 @@
                 var options = {
                     title: 'Sensor Data',
                     pieHole: 0.4,
+                    titlePosition: 'center',
                     legend: {
                         alignment: 'center',
                         position: 'top'
-                    }
+                    },
+                    titlePosition: 'center'
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('container'));
