@@ -12,7 +12,6 @@ $(document).ready(function() {
                 data.splice(index, 1);
             }
         });
-        
         console.log(data);
         $.ajax({
             url: '/load',
